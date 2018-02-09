@@ -3415,15 +3415,20 @@ Math.LOG10E   // returns base 10 logarithm of E
 
     ```javascript
     Function.prototype.construct = function(aArgs) {
-        // `MyConstructor` acts as an object and a function at the same time?!
-        console.log(this === MyConstructor);
+	// console.log('this inside the prototype: ', this);
 
-        // create an instance of the new constructor based on `MyConstructor.prototype`
-        // that is to say, `oNew` is an object
         var oNew = Object.create(this.prototype);
-        // call `MyConstructor()` with `oNew` being the context object and `myArray` as arguments
+        console.log('oNew before apply:', oNew);
+        // MyConstructor {}
+
+        /* 此处 this, 即 MyConstructor 作为一个函数，将运行时 this 绑定为 oNew */
+        /* later ?! */
         this.apply(oNew, aArgs);
-        // return the object
+        // console.log('this after apply', this);
+
+        console.log('oNew after apply:', oNew);
+        // MyConstructor {property0: 4, property1: "Hello world!", property2: false}
+
         return oNew;
     };
 
@@ -3444,6 +3449,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     }
 
     var myArray = [4, 'Hello world!', false];
+    /* MyConstructor 作为对象调用 construct 方法， this 自然指向 MyConstructor */
     var myInstance = MyConstructor.construct(myArray);
     myInstance;                             // {property0: 4, property1: "Hello world!", property2: false}
     myInstance.constructor;                 // MyConstructor(){...}
