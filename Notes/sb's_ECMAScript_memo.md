@@ -1431,9 +1431,9 @@ When an accessor property is read from, the `getter` function is called, and it'
 <a id="cob"></a>
 
 ## [Creating objects](#cnt2)
-ECMAScript supports object-oriented (OO) programming without the use of classes or interfaces. Objects are created and augmented at any point during code execution, making objects into dynamic rather than strictly defined entities.
+<!-- ECMAScript supports object-oriented (OO) programming without the use of classes or interfaces. Objects are created and augmented at any point during code execution, making objects into dynamic rather than strictly defined entities. -->
 
-1. Use an object literal. When defining an object via object literal notation, the `Object` constructor is never actually called. Object literals have become a preferred way of passing a large number of optional arguments to a function. 
+<!-- 1. Use an object literal. When defining an object via object literal notation, the `Object` constructor is never actually called. Object literals have become a preferred way of passing a large number of optional arguments to a function. 
 
     ```javascript
     var car = {type:"Fiat", model:"500", color:"white", 5: true};
@@ -1454,8 +1454,8 @@ ECMAScript supports object-oriented (OO) programming without the use of classes 
     });
     ```
 
-    > No commas for the last `name:value` pair. 
-1. Use the `new` operator followed by a constructor. A constructor is simply a function whose purpose is to create a new object. ECMAScript requires parentheses to be used only when providing arguments to the constructor. If there are no arguments, then the parentheses can be omitted safely (though that's not recommended).
+    > No commas for the last `name:value` pair.  -->
+<!-- 1. Use the `new` operator followed by a constructor. A constructor is simply a function whose purpose is to create a new object. ECMAScript requires parentheses to be used only when providing arguments to the constructor. If there are no arguments, then the parentheses can be omitted safely (though that's not recommended).
 
     ```javascript
     // built-in constructor
@@ -1472,8 +1472,8 @@ ECMAScript supports object-oriented (OO) programming without the use of classes 
     var x8 = new Date();      // A new Date object
     ```
 
-    > **An obvious downside of using the `Object` constructor or an object literal to create objects is that creating multiple objects with the same interface requires a lot of code duplication**.
-1. Use factory pattern. It didn't address the issue of object identification (what type of object an object is).
+    > **An obvious downside of using the `Object` constructor or an object literal to create objects is that creating multiple objects with the same interface requires a lot of code duplication**. -->
+<!-- 1. Use factory pattern. It didn't address the issue of object identification (what type of object an object is).
 
     ```javascript
     function createPerson(name, age, job) {
@@ -1487,9 +1487,9 @@ ECMAScript supports object-oriented (OO) programming without the use of classes 
         return o;
     }
     var p1 = createPerson("S", "26", "unemployed");
-    ```
+    ``` -->
 
-1. Use the constructor pattern to **define a custom object constructor**.
+<!-- 1. Use the constructor pattern to **define a custom object constructor**.
 
     ```javascript
     function Person(first, last, job) {
@@ -1560,7 +1560,7 @@ ECMAScript supports object-oriented (OO) programming without the use of classes 
         }
         ```
 
-    - The **problem** of this approach is that it may introduce multiple global functions. These problems are addressed by using the prototype pattern.
+    - The **problem** of this approach is that it may introduce multiple global functions. These problems are addressed by using the prototype pattern. -->
 1. **Use prototype pattern**.
     - Each function is created with a ***prototype*** property, which is an **object** containing properties and methods that should be available to instances of a particular reference type. This object is literally a prototype for the object to be created once the constructor function is called. The benefit of using the prototype is that all of its properties and methods are shared among object instances. Instead of assigning object information in the constructor function, they can be assigned directly to the prototype object. Unlike the constructor pattern, the properties and methods are all shared among instances. So `boy1` and `boy2` access **the same** set of properties and the same `sayName()` function. 
 
@@ -2799,7 +2799,7 @@ Math.LOG10E   // returns base 10 logarithm of E
 <a id="thcl"></a>
     
 ### [The `this` object](#thi)
-- The `this` object is bound at runtime based on the **context** in which a function is executed: when used inside global functions, `this` is equal to `window` in nonstrict mode and *`undefined`* in strict mode, whereas `this` is equal to the object when called as an object method. Anonymous functions are not bound to an object in this context, meaning the `this` object points to `window` unless executing in strict mode (where this is *`undefined`*).
+<!-- - The `this` object is bound at runtime based on the **context** in which a function is executed: when used inside global functions, `this` is equal to `window` in nonstrict mode and *`undefined`* in strict mode, whereas `this` is equal to the object when called as an object method. Anonymous functions are not bound to an object in this context, meaning the `this` object points to `window` unless executing in strict mode (where this is *`undefined`*).
 
     ```javascript
     var name = "The Window";
@@ -2850,7 +2850,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     (obj.getName = obj.getName)();      // "The Window" in non-strict mode
     ```
 
-    - The value of last-line **assignment expression** is the function definition in the global scope, so the `this` value is not maintained.
+    - The value of last-line **assignment expression** is the function definition in the global scope, so the `this` value is not maintained. -->
 ### Memory leaks
 - The way closures work causes particular problems in Internet Explorer prior to version 9 because of the different garbage-collection routines used for JScript objects versus COM objects. Storing a scope in which an HTML element is stored effectively ensures that the element cannot be destroyed.
 
@@ -3105,10 +3105,10 @@ Math.LOG10E   // returns base 10 logarithm of E
 <a id="thi"></a>
 
 ## [***this***](#thcl)
-- `this` is not a variable. It's a keyword and its value cannot be changed. `this` is the object that owns the code. The value of `this`, when used in a function, is the object that "owns" the function. The value of `this`, when used in an object, is the object itself.
+<!-- - `this` is not a variable. It's a keyword and its value cannot be changed. `this` is the object that owns the code. The value of `this`, when used in a function, is the object that "owns" the function. The value of `this`, when used in an object, is the object itself.
 - The `this` keyword in an object constructor does not have a value. It is only a **substitute** for the new object. The value of `this` will become the new object when the constructor is used to create an object.
-- In the global execution context (outside of any function), `this` refers to the global object whether in strict mode or not.
-- The `this` object reference to the **context object** that the function is operating on — often called the `this` value (when a function is **called** in the global scope of a web page, the this object points to `window`). The value of `this` is not determined **until the function is called**, so its value may not be consistent throughout the code execution.
+- In the global execution context (outside of any function), `this` refers to the global object whether in strict mode or not. -->
+<!-- - The `this` object reference to the **context object** that the function is operating on — often called the `this` value (when a function is **called** in the global scope of a web page, the this object points to `window`). The value of `this` is not determined **until the function is called**, so its value may not be consistent throughout the code execution.
 
     ```javascript
     window.color = "red";
@@ -3122,8 +3122,8 @@ Math.LOG10E   // returns base 10 logarithm of E
     o.sayColor();       // "blue"
     ```
 
-    - The function `sayColor()` is defined globally but references the `this` object. When `sayColor()` is called in the global scope, it outputs "red" because `this` is pointing to `window`, which means `this.color` evaluates to `window.color`. By assigning the function to the object `o` and then calling `o.sayColor()`, the `this` object points to `o`, so `this.color` evaluates to `o.color` and "blue" is displayed. Function names are simply variables containing pointers, so the global `sayColor()` function and `o.sayColor()` point to the same function even though they execute in different contexts.
-- When a function is called as a method of an object, its `this` is set to the object the method is called on. 
+    - The function `sayColor()` is defined globally but references the `this` object. When `sayColor()` is called in the global scope, it outputs "red" because `this` is pointing to `window`, which means `this.color` evaluates to `window.color`. By assigning the function to the object `o` and then calling `o.sayColor()`, the `this` object points to `o`, so `this.color` evaluates to `o.color` and "blue" is displayed. Function names are simply variables containing pointers, so the global `sayColor()` function and `o.sayColor()` point to the same function even though they execute in different contexts. -->
+<!-- - When a function is called as a method of an object, its `this` is set to the object the method is called on. 
 
     ```javascript
     var o = {
@@ -3147,8 +3147,8 @@ Math.LOG10E   // returns base 10 logarithm of E
     console.log(o.f()); // 37
     ```
 
-    - This behavior is not at all affected by how or where the function was defined. It matters only that the function was invoked from the `f` member of `o`.
-- The `this` binding is only affected by the most immediate member reference. 
+    - This behavior is not at all affected by how or where the function was defined. It matters only that the function was invoked from the `f` member of `o`. -->
+<!-- - The `this` binding is only affected by the most immediate member reference. 
 
     ```javascript
     o.b = {g: independent, prop: 42};
@@ -3167,8 +3167,8 @@ Math.LOG10E   // returns base 10 logarithm of E
     console.log(p.f()); // 5
     ```
 
-    - The object assigned to the variable `p` doesn't have its own f property, it inherits it from its prototype. But it doesn't matter that the lookup for `f` eventually finds a member with that name on `o`; the lookup began as a reference to `p.f`, so `this` inside the function takes the value of the object referred to as `p`. That is, since `f` is called as a method of `p`, its `this` refers to `p`. This is an interesting feature of JavaScript's prototype inheritance.
-- The same notion holds true when a function is invoked from a getter or a setter. A function used as getter or setter has its `this` bound to the object from which the property is being set or gotten.
+    - The object assigned to the variable `p` doesn't have its own f property, it inherits it from its prototype. But it doesn't matter that the lookup for `f` eventually finds a member with that name on `o`; the lookup began as a reference to `p.f`, so `this` inside the function takes the value of the object referred to as `p`. That is, since `f` is called as a method of `p`, its `this` refers to `p`. This is an interesting feature of JavaScript's prototype inheritance. -->
+- <!-- The same notion holds true when a function is invoked from a getter or a setter. --> A function used as getter or setter has its `this` bound to the object from which the property is being set or gotten.
 
     ```javascript
     function sum() {
@@ -3190,7 +3190,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     console.log(o.average, o.sum); // 2, 6
     ```
 
-- When a function is used as a constructor (with the `new` keyword), its `this` is bound to the new object being constructed. While the default for a constructor is to return the object referenced by `this`, it can instead return some other object (if the return value isn't an object, then the `this` object is returned).
+<!-- - When a function is used as a constructor (with the `new` keyword), its `this` is bound to the new object being constructed. While the default for a constructor is to return the object referenced by `this`, it can instead return some other object (if the return value isn't an object, then the `this` object is returned).
 
     ```javascript
     /*
@@ -3229,7 +3229,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     console.log(o.a); // 38
     ```
     
-    - In the last example, because an object was returned during construction, the new object that `this` was bound to simply gets discarded. (This essentially makes the statement `this.a = 37;` dead code. It's not exactly dead, because it gets executed, but it can be eliminated with no outside effects.)
+    - In the last example, because an object was returned during construction, the new object that `this` was bound to simply gets discarded. (This essentially makes the statement `this.a = 37;` dead code. It's not exactly dead, because it gets executed, but it can be eliminated with no outside effects.) -->
 
 - Some JavaScript functions create instances not only when invoked as constructors, but also when invoked as functions. For example `RegExp`. But in most cases omitting the `new` will cause problems.
 
@@ -3277,7 +3277,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     outer();
     ```
 
-- A common trap with the function invocation is thinking that `this` is the same in an inner function as in the outer function. Correctly the context of the `inner` function depends only on invocation, but not on the outer function's context. If the inner function's immediate context is a containing function, `this` is `window` or *`undefined`*.
+<!-- - A common trap with the function invocation is thinking that `this` is the same in an inner function as in the outer function. Correctly the context of the `inner` function depends only on invocation, but not on the outer function's context. If the inner function's immediate context is a containing function, `this` is `window` or *`undefined`*.
 
     ```javascript
     var numbers = {  
@@ -3327,7 +3327,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     // or throws a TypeError in strict mode
     setTimeout(myCat.logInfo, 1000); 
     // setTimeout(myCat.logInfo.bind(myCat), 1000);  
-    ```
+    ``` -->
 
 ### [**`this` in closures**](#thcl)
 
@@ -3455,7 +3455,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     myInstance.constructor;                 // MyConstructor(){...}
     myInstance instanceof MyConstructor;    // true
 
-
+    /* 
     (Function.prototype.bind.apply(Date, [null].concat([2012, 11, 4])))();      // "Sun Nov 12 2017 20:45:10 GMT+0800 (China Standard Time)"   ? see Date
 
 
@@ -3476,13 +3476,14 @@ Math.LOG10E   // returns base 10 logarithm of E
 
     var cheese = new Food('feta', 5);
     var fun = new Toy('robot', 40);
+    */
     ```
 
 ### **`bind()`**
 <!-- - Contrary to `apply()` and `call()` methods, which invokes the function right away, the `bind()` method only ***returns a new function*** that it supposed to be invoked later with a pre-configured `this`. -->
-- ECMAScript 5 defines an additional method called `bind()`. The `bind()` method creates a new function instance whose `this` value is bound to the value that was passed into `bind()`. Its return value is a copy of the given function with the specified `this` value and initial arguments. 
-- Bound functions are automatically suitable for use with the `new` operator to construct new instances created by the target function. When a bound function is used to construct a value, the provided `this` is ignored. However, provided arguments are still prepended to the constructor call.
-- The simplest use of `bind()` is to make a function that, no matter how it is called, is called with a particular `this` value.
+<!-- - ECMAScript 5 defines an additional method called `bind()`. The `bind()` method creates a new function instance whose `this` value is bound to the value that was passed into `bind()`. Its return value is a copy of the given function with the specified `this` value and initial arguments.  -->
+<!-- - Bound functions are automatically suitable for use with the `new` operator to construct new instances created by the target function. When a bound function is used to construct a value, the provided `this` is ignored. However, provided arguments are still prepended to the constructor call. -->
+<!-- - The simplest use of `bind()` is to make a function that, no matter how it is called, is called with a particular `this` value.
 
     ```javascript
     window.color = "red";
@@ -3511,8 +3512,8 @@ Math.LOG10E   // returns base 10 logarithm of E
     console.log(o.f(), o.g(), o.h()); // 37, azerty, azerty
     ```
 
-    - Calling `f.bind(someObject)` creates a new function with the same body and scope as `f`, `this`  in the new function is permanently bound to the first argument of `bind`, regardless of how the function is being used.
-- The next simplest use of `bind()` is to make a function with **pre-specified initial arguments**. These arguments (if any) follow the provided `this` value and are then inserted at the start of the arguments passed to the **target function**, followed by the arguments passed to the **bound function**, whenever the bound function is called.
+    - Calling `f.bind(someObject)` creates a new function with the same body and scope as `f`, `this`  in the new function is permanently bound to the first argument of `bind`, regardless of how the function is being used. -->
+<!-- - The next simplest use of `bind()` is to make a function with **pre-specified initial arguments**. These arguments (if any) follow the provided `this` value and are then inserted at the start of the arguments passed to the **target function**, followed by the arguments passed to the **bound function**, whenever the bound function is called.
 
     ```javascript
     function list() {
@@ -3526,29 +3527,28 @@ Math.LOG10E   // returns base 10 logarithm of E
     // [37]
     var list3 = leadingThirtysevenList(1, 2, 3);
     // [37, 1, 2, 3]
-    ```
+    ``` -->
 
-- With `setTimeout`
+<!-- - With `setTimeout`
 
     ```javascript
     function LateBloomer() {
         this.petalCount = Math.floor(Math.random() * 12) + 1;
     }
-
-    // execute `declare` after a delay of 1 second
     LateBloomer.prototype.bloom = function() {
-        console.log(this === flower);       // true
+        /* 仅设置将来某个时间执行 this.declare 指向的函数， this 并不是函数的调用者。 
+        this.declare() 这种写法 this 才是调用者 */
+        window.setTimeout(this.declare, 1000);
         window.setTimeout(this.declare.bind(this), 1000);
     };
-
     LateBloomer.prototype.declare = function() {
         console.log("I'm a beautiful flower with " + this.petalCount + " petals!");
     };
     var flower = new LateBloomer();
     flower.bloom();
-    ```
+    ``` -->
 
-- Bound functions used as constructors
+<!-- - Bound functions used as constructors
 
     ```javascript
     function Point(x, y) {
@@ -3569,9 +3569,9 @@ Math.LOG10E   // returns base 10 logarithm of E
     axisPoint instanceof Point;                 // true
     axisPoint instanceof YAxisPoint;            // true
     new Point(3, 4) instanceof YAxisPoint;      // true
-    ```
+    ``` -->
 
-- Creating shortcuts
+<!-- - Creating shortcuts
 
     ```javascript
     var slice = Array.prototype.slice;
@@ -3590,7 +3590,7 @@ Math.LOG10E   // returns base 10 logarithm of E
     list2;
     ```
 
-    - `slice` is a bound function to the `apply()` function of `Function.prototype`, with the `this` value set to the `slice()` function of `Array.prototype`. 
+    - `slice` is a bound function to the `apply()` function of `Function.prototype`, with the `this` value set to the `slice()` function of `Array.prototype`.  -->
 
 ### Other methods
 - For functions, the inherited methods `toLocaleString()` and `toString()` always return the function's code. The exact format of this code varies from browser to browser, so you can't rely on what is returned for any important functionality, though this information may be useful for debugging purposes. The inherited method `valueOf()` simply returns the function itself.
