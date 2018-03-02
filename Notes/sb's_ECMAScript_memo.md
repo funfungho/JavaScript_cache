@@ -1003,7 +1003,7 @@ var z = new String("John");
     ```
 
 #### **`concat()`, `slice()`, `splice()`**
-- The `concat()` method creates a new array by merging (concatenating) existing arrays. This method begins by creating a copy of the array and then appending the method arguments to the end and returning the newly constructed array. It can take any number of array and values as arguments. When no arguments are passed in, `concat()` simply clones the array and returns it. It does not change the existing array and always returns **a new array**.
+- The `concat()` method creates a new array by merging (concatenating) existing arrays. This method begins by creating a copy of the array and then appending the method arguments to the end and returning the newly constructed array. It can take any number of array and values as arguments. When no arguments are passed in, `concat()` simply **clones the array** and returns it. It does not change the existing array and always returns **a new array**.
 
     ```javascript
     var arr1 = ["Cecilie", "Lone"];
@@ -1254,7 +1254,7 @@ undefined|NaN|"undefined"|false
 
     - **Each variable inside the statement is first considered to be a local variable**. If it's not found to be a local variable, the `location` object is searched to see if it has a property of the same name. If so, then the variable is evaluated as a property of location.
 
-    > It is widely considered a poor practice to use the with statement in production code because of its negative performance impact and the difficulty in debugging code contained in the `with` statement.
+    > It is widely considered a poor practice to use the `with` statement in production code because of its negative performance impact and the difficulty in debugging code contained in the `with` statement.
 ## **switch**
 - The `switch` statement works with all data types. The case values can be variables and expressions. The `switch` statement compares values using the identically equal operator, so no type coercion occurs (for example, the string "10" is not equal to the number 10).
 - Without the `break` keyword, code execution falls through the original case into the following one. The `default` keyword indicates what is to be done if the expression does not evaluate to one of the cases.
