@@ -7,7 +7,7 @@
     - 函数被一个对象作为的方法调用时，`this` 是作为调用者的对象。
         - 对象方法在 prototype 上时， `this` 还是调用该方法的对象实例。
         - `this` 就近绑定，调用 `o.b.foo()` 时 `this` 是 `o.b`.
-        - 函数的方法被赋值给其它变量或当做参数传递时，`this` 同函数在全局作用域下被调用的情况。
+        - 对象的方法被赋值给其它变量或当做参数传递时，`this` 同函数在全局作用域下被调用的情况。
     - 构造函数被调用时 (`new`), `this` 默认是新建的实例，且该实例被默认返回。若自定义返回其它对象，`this` 则是自定义返回的对象。
 
         ```javascript
@@ -49,7 +49,7 @@
 
     ```javascript
     var logApp = function() {
-        <!-- console.log 方法的 this 仍旧绑定为 console, 没有改变 -->
+        /* console.log 方法的 this 仍旧绑定为 console, 没有改变 */
         console.log.apply(console, arguments);
     };
 
@@ -90,6 +90,6 @@
     var list3 = leadingThirtysevenList(1, 2, 3);    // [37, 1, 2, 3]
     ```
 
-- 若绑定的函数时构造函数，当它用来新建实例时，预绑定好的 `this` 将被忽略，其它参数会保留。 
+- 若绑定的函数是构造函数，当它用来新建实例时，预绑定好的 `this` 将被忽略，其它参数会保留。 
     
 <!-- - Contrary to `apply()` and `call()` methods, which invokes the function right away, the `bind()` method only ***returns a new function*** that it supposed to be invoked later with a pre-configured `this`. -->
